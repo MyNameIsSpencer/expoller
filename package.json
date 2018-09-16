@@ -1,11 +1,19 @@
 {
-  "name": "expollre",
+  "name": "expoller",
   "version": "1.0.0",
   "description": "polling app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Spencer Kyonka",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyNameIsSpencer/expoller.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MyNameIsSpencer/expoller/issues"
+  },
+  "homepage": "https://github.com/MyNameIsSpencer/expoller#readme"
 }
