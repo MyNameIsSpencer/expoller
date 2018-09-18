@@ -5,8 +5,13 @@ const poll = require('./routes/api/poll');
 const polls = require('./routes/api/polls');
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+// Body Parser Middleware
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 // DB Config
 const db = require('./config/keys').mongoURI;
