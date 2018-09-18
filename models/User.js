@@ -17,7 +17,7 @@ const UserSchema = new Schema({
   },
   description: {
     type: String,
-  }
+  },
   datejoin: {
     type: Date,
     default: Date.now
@@ -69,6 +69,23 @@ const UserSchema = new Schema({
   },
   address: {
     type: String
+  },
+  social: {
+    youtube: {
+      type: String
+    },
+    twitter: {
+      type: String
+    },
+    facebook: {
+      type: String
+    },
+    linkedin: {
+      type: String
+    },
+    instagram: {
+      type: String
+    }
   },
   creator: {
     type: Boolean,
