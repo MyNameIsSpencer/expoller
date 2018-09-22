@@ -25,6 +25,8 @@ const validatePostInput = require('../../validation/post');
 // @access  Public
 router.get('/test', (req, res) => res.json({ msg: 'Posts Works' }));
 
+
+
 // @route   GET api/posts
 // @desc    Get posts
 // @access  Public
