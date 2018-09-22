@@ -7,6 +7,7 @@ const poll = require('./routes/api/poll');
 const polls = require('./routes/api/polls');
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts');
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use('/api/poll', poll);
 app.use('/api/polls', polls);
 app.use('/api/profile', profile);
 app.use('/api/users', users);
+app.use('/api/posts', posts);
 
 
 const port = process.env.PORT || 5000;
