@@ -8,14 +8,15 @@ const validateProfileInput = require('../../validation/profile');
 const validateExperienceInput = require('../../validation/experience');
 const validateEducationInput = require('../../validation/education');
 
+// Load Profile Model
+const Profile = require('../../models/Profile');
 // Load User Model
 const User = require('../../models/User');
-
 
 // @route   GET api/profile/test
 // @desc    Tests profile route
 // @access  Public
-router.get('/test', (req, res) => res.json({msg: "Profile Testing Successful"}));
+router.get('/test', (req, res) => res.json({ msg: 'Profile Works' }));
 
 // @route   GET api/profile
 // @desc    Get current users profile
@@ -27,10 +28,10 @@ router.get(
     const errors = {};
 
     Profile.findOne({ user: req.user.id })
-      .populate('user', ['name'])
+      .populate('user', ['name', 'avatar'])
       .then(profile => {
         if (!profile) {
-          errors.noprofile = 'No profile to see here';
+          errors.noprofile = 'There is no profile for this user';
           return res.status(404).json(errors);
         }
         res.json(profile);
@@ -39,7 +40,6 @@ router.get(
   }
 );
 
-
 // @route   GET api/profile/all
 // @desc    Get all profiles
 // @access  Public
@@ -47,7 +47,7 @@ router.get('/all', (req, res) => {
   const errors = {};
 
   Profile.find()
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name'])
     .then(profiles => {
       if (!profiles) {
         errors.noprofile = 'There are no profiles';
@@ -59,10 +59,10 @@ router.get('/all', (req, res) => {
     .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
 });
 
-
 // @route   GET api/profile/handle/:handle
 // @desc    Get profile by handle
 // @access  Public
+
 router.get('/handle/:handle', (req, res) => {
   const errors = {};
 
@@ -78,7 +78,6 @@ router.get('/handle/:handle', (req, res) => {
     })
     .catch(err => res.status(404).json(err));
 });
-
 
 // @route   GET api/profile/user/:user_id
 // @desc    Get profile by user ID
@@ -97,7 +96,8 @@ router.get('/user/:user_id', (req, res) => {
 
       res.json(profile);
     })
-    .catch(err => res.status(404).json({ profile: 'There is no profile for this user' })
+    .catch(err =>
+      res.status(404).json({ profile: 'There is no profile for this user' })
     );
 });
 
