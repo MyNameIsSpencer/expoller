@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+
+import Landing from './components/layout/Landing';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <br />
+          <br />
+          <br />
+          <Route exact path="/" component={Landing} />
+          <div>
+            <Route exact path="/register" component={Register}>Registrar</Route>
+            <Route exact path="/login" component={Login}>Loggin dem logs</Route>
+            <Route></Route>
+          </div>
+          <br />
+          <br />
+          <br />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
