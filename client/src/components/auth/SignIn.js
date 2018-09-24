@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class Login extends Component {
+class SignIn extends Component {
   render() {
     return (
       <div>
-        Time to Login
+        Time to SignIn
       </div>
     )
   }
 
 }
 
-export default Login;
+export default SignIn;

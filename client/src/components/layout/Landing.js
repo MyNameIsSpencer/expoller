@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import LandingCentre from './LandingCentre';
 
 class Landing extends Component {
   render() {
     return (
       <div>
-        Welcome to Landing of Expoller!!!!
+        <LandingCentre />
 
       </div>
     )
